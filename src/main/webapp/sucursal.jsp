@@ -46,12 +46,17 @@
                                     while (rs.next()) {
                                         %>
                                         <tr>
-                                            <td scope="row"><%= rs.getInt("id_sucursal") %></td>
-                                            <td scope="row"><%= rs.getString("nombre") %></td>
-                                            <td scope="row"><%= rs.getString("direccion") %></td>
-                                            <td scope="row"><%= rs.getString("telefono") %></td>
+                                            <td scope="row"><%= rs.getString(1) %></td>
+                                            <td scope="row"><%= rs.getString(2) %></td>
+                                            <td scope="row"><%= rs.getString(3) %></td>
+                                            <td scope="row"><%= rs.getString(4) %></td>
                                             <td>
-                                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                <a href="editarSucursal.jsp?id_sucursal=<%=rs.getString(1) %>
+                                                   &nombre=<%=rs.getString(2) %>
+                                                   &direccion=<%=rs.getString(3) %>
+                                                   &telefono=<%=rs.getString(4) %>" />
+                                                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                </a>
                                                 <i class="fa fa-trash" aria-hidden="true"></i>
                                             </td>
                                         </tr>
