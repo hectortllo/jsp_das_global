@@ -54,10 +54,13 @@
                                                 <a href="editarSucursal.jsp?id_sucursal=<%=rs.getString(1) %>
                                                    &nombre=<%=rs.getString(2) %>
                                                    &direccion=<%=rs.getString(3) %>
-                                                   &telefono=<%=rs.getString(4) %>" />
+                                                   &telefono=<%=rs.getString(4) %>">
                                                     <i class="fa fa-pencil" aria-hidden="true"></i>
                                                 </a>
-                                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                                <a href="borrar.jsp?id_sucursal=<%= rs.getString(1) %>" class="ml-3">
+                                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                                </a>
+                                                
                                             </td>
                                         </tr>
                                         <%
