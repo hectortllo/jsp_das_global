@@ -23,6 +23,7 @@
         <div class="container mt-5">
             <div class="row">
                 <div class="col-sm">
+                    <h3 class="text-center">Editar Sucursal</h3>
                     <form action="editarSucursal.jsp" method="get">
                         <div class="form-group">
                             <label for="nombre">Nombre</label>
@@ -36,10 +37,10 @@
                             <label for="nombre">Nombre</label>
                             <input type="text" class="form-control" id="telefono" value="<%= telefono %>" name="telefono" placeholder="Teléfono" required>
                         </div>
-                        <a href="sucursal.jsp" class="btn btn-danger">
+                        <a href="sucursal.jsp" class="btn btn-danger mt-3">
                             Cancelar<i class="fa fa-ban" aria-hidden="true"></i>
                         </a>
-                        <button type="submit" name="enviar" class="btn btn-primary">Guardar</button>
+                        <button type="submit" name="enviar" class="btn btn-primary mt-3" style="margin-left: 8px">Guardar</button>
                         <input type="hidden" id="id_sucursal" name="id_sucursal" value="<%= id %>">
                     </form>
                 </div>

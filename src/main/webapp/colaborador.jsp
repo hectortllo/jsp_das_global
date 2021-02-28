@@ -1,6 +1,6 @@
 <%-- 
-    Document   : sucursal
-    Created on : 28/02/2021, 12:43:43
+    Document   : colaborador
+    Created on : 28/02/2021, 15:28:10
     Author     : hectortllo
 --%>
 <%@page import="java.sql.*"%>
@@ -9,16 +9,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-        <title>Sucursales</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
     </head>
     <body>
         <%
             Connection con = null;
             Statement st = null;
             ResultSet rs = null;
+            String id = request.getParameter("id_sucursal");
         %>
         <div class="container mt-5">
             <div class="row">
@@ -26,14 +26,12 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th scope="col" colspan="4" class="text-center"><h3>Sucursales</h3></th>
+                                <th scope="col" colspan="4" class="text-center"><h3>Colaboradores</h3></th>
                             </tr>
                             <tr>
                                 <th scope="col">ID</th>
                                 <th scope="col">Nombre</th>
-                                <th scope="col">Dirección</th>
-                                <th scope="col">Teléfono</th>
-                                <th scope="col">Acciones</th>
+                                <th scope="col">CUI</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -42,30 +40,13 @@
                                     Class.forName("com.mysql.jdbc.Driver");
                                     con = DriverManager.getConnection("jdbc:mysql://localhost/test_das?user=root&password=root");
                                     st = con.createStatement();
-                                    rs = st.executeQuery("SELECT * FROM sucursal");
+                                    rs = st.executeQuery("SELECT * FROM colaborador WHERE id_sucursal = '"+id+"'");
                                     while (rs.next()) {
                                         %>
                                         <tr>
                                             <td scope="row"><%= rs.getString(1) %></td>
-                                            <td scope="row">
-                                                <a href="colaborador.jsp?id_sucursal= <%= rs.getString(1) %>">
-                                                    <%= rs.getString(2) %>
-                                                </a>
-                                            </td>
+                                            <td scope="row"><%= rs.getString(2) %></td>
                                             <td scope="row"><%= rs.getString(3) %></td>
-                                            <td scope="row"><%= rs.getString(4) %></td>
-                                            <td>
-                                                <a href="editarSucursal.jsp?id_sucursal=<%=rs.getString(1) %>
-                                                   &nombre=<%=rs.getString(2) %>
-                                                   &direccion=<%=rs.getString(3) %>
-                                                   &telefono=<%=rs.getString(4) %>" >
-                                                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                                                </a>
-                                                <a href="borrar.jsp?id_sucursal=<%= rs.getString(1) %>" style="margin-left: 15px">
-                                                    <i class="fa fa-trash" aria-hidden="true"></i>
-                                                </a>
-                                                
-                                            </td>
                                         </tr>
                                         <%
                                     }
@@ -79,7 +60,7 @@
             </div>
             <div class="row">
                 <div class="col-sm">
-                    <a href="index.jsp" class="btn btn-primary">Home</a>
+                    <a href="sucursal.jsp" class="btn btn-primary">Sucursales</a>
                 </div>
             </div>
         </div>
