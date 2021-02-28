@@ -53,7 +53,7 @@
                     Statement st = null;
                     
                     Class.forName("com.mysql.jdbc.Driver");
-                    con = DriverManager.getConnection("jdbc:mysql://localhost/test_das?user=root&password=root");
+                    con = DriverManager.getConnection("jdbc:mysql://localhost/dsa_global?user=root&password=root");
                     st = con.createStatement();
                     st.executeUpdate("UPDATE sucursal SET nombre='" + nombre + "', direccion='" + direccion + "', "
                     + "telefono='"+telefono+"' WHERE id_sucursal = '"+id+"';");

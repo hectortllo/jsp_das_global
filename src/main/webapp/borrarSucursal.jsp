@@ -21,7 +21,7 @@
             
             try {
                 Class.forName("com.mysql.jdbc.Driver");
-                con = DriverManager.getConnection("jdbc:mysql://localhost/test_das?user=root&password=root");
+                con = DriverManager.getConnection("jdbc:mysql://localhost/dsa_global?user=root&password=root");
                 st = con.createStatement();
                 /**
                 *    Borrar los colabores relacionados a la sucural a eliminar

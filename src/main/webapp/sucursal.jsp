@@ -40,7 +40,7 @@
                             <%
                                 try {
                                     Class.forName("com.mysql.jdbc.Driver");
-                                    con = DriverManager.getConnection("jdbc:mysql://localhost/test_das?user=root&password=root");
+                                    con = DriverManager.getConnection("jdbc:mysql://localhost/dsa_global?user=root&password=root");
                                     st = con.createStatement();
                                     rs = st.executeQuery("SELECT * FROM sucursal");
                                     while (rs.next()) {
@@ -61,7 +61,7 @@
                                                    &telefono=<%=rs.getString(4) %>" >
                                                     <i class="fa fa-pencil" aria-hidden="true"></i>
                                                 </a>
-                                                <a href="borrar.jsp?id_sucursal=<%= rs.getString(1) %>" style="margin-left: 15px">
+                                                <a href="borrarSucursal.jsp?id_sucursal=<%= rs.getString(1) %>" style="margin-left: 15px">
                                                     <i class="fa fa-trash" aria-hidden="true"></i>
                                                 </a>
                                                 
@@ -80,6 +80,9 @@
             <div class="row">
                 <div class="col-sm">
                     <a href="index.jsp" class="btn btn-primary">Home</a>
+                </div>
+                <div class="col-sm">
+                    <a href="colaboradores.jsp" class="btn btn-primary">Ver todos los colaboradores</a>
                 </div>
             </div>
         </div>
