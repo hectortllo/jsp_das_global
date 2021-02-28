@@ -5,6 +5,7 @@
 --%>
 <%@page import="java.sql.*"%>
 <%@page import="com.mysql.jdbc.Driver"%>
+<%@page import="com.hectortllo.proyectodasglobal.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -37,8 +38,7 @@
                         <tbody>
                             <%
                                 try {
-                                    Class.forName("com.mysql.jdbc.Driver");
-                                    con = DriverManager.getConnection("jdbc:mysql://localhost/dsa_global?user=root&password=root");
+                                    con = Conexion.conection();
                                     st = con.createStatement();
                                     rs = st.executeQuery("SELECT * FROM colaborador WHERE id_sucursal = '"+id+"'");
                                     while (rs.next()) {
